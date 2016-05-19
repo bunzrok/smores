@@ -3,6 +3,7 @@
 
 node_modules
 src/bower_components
+src/js/vendor
 .DS_Store
 lib/vendor
 assets/js/*.min.js
