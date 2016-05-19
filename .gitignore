@@ -7,3 +7,4 @@ assets/bower_components
 lib/vendor
 assets/js/*.min.js
 *.map
+dist

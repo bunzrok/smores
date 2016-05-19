@@ -21,6 +21,12 @@ gulp.task('styles', () => {
     .pipe(plugins.size({ title: 'styles' }));
 });
 
+gulp.task('modernizr', () => {
+  return gulp.src('src/js/**/*.js')
+    .pipe(plugins.modernizr())
+    .pipe(gulp.dest("src/js/vendor/"))
+});
+
 // Scripts task
 gulp.task('scripts', () => {
   return gulp.src(['src/js/**/*.js'])
@@ -50,7 +56,7 @@ gulp.task('images', () => {
 });
 
 // Build task
-gulp.task('build', ['styles', 'scripts', 'images']);
+gulp.task('build', ['styles', 'scripts', 'modernizr', 'images']);
 
 // Watch task
 gulp.task('watch', () => {
