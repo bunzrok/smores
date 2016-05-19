@@ -3,64 +3,38 @@
 // Licensed under MIT Open Source
 
 // Make sure the charset is set appropriately
-@charset "UTF-8";
+@charset 'UTF-8';
 
-/**
- * Import custom variable for use within project as well  
- * as in /bower_components/foundation/scss/foundation/settings
-**/
+// This is based on the 7-1 Pattern. For more info:
+// http://sass-guidelin.es/#the-7-1-pattern
 
-@import "variables"; 
+// Base
+@import 
+  'base/variables', 
+  'vendor/normalize',
+  '../bower_components/foundation/scss/foundation',
+  'base/typography'; 
 
+// Layout 
+@import 
+  'layout/header',
+  'layout/nav',
+  'layout/footer',
+  'layout/main',
+  'layout/sidebar';
 
-/**
- * Mixins (Like functions for Sass)  
-**/
-@import "mixins";
+// Components
+//  @import 
+//    'components/name';
 
-/**
- * Normazlize (Normalize things like margin, padding, etc)  
-**/
-@import "normalize" ;
+// Utils
+@import 
+  'utils/mixins',
+  'utils/qa';
 
-/**
- * Main Foundation file  
-**/
-@import "../bower_components/foundation/scss/foundation";
+// Vendor
+@import 
+  'vendor/animate';
 
-
-/**
- * Global Typography, feel free to use media queries in here.  
-**/
-@import "typography"; 
-
-/**
- * Animations, comment out if you do not need. 
-**/
-@import "animate";
-
-/**
- * Mobile First  
-**/
-@import "layout/header";
-@import "layout/footer";
-@import "layout/main";
-
-/**
- * Tablet Second  
-**/
-@import "tablet/header";
-@import "tablet/footer";
-@import "tablet/main";
-
-/**
- * Desktop Third  
-**/
-@import "desktop/header";
-@import "desktop/footer";
-@import "desktop/main";
-
-/**
- * Helpers  
-**/
-@import "qa";
+@import 
+  'shame';
