@@ -22,7 +22,7 @@
  */
 
 // Composer dependencies
-require _DIR_ . '/lib/vendor/autoload.php';
+require __DIR__ . '/lib/vendor/autoload.php';
 
 use Smores\Smores;
 use Smores\TopBarPageWalker;
