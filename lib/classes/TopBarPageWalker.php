@@ -3,9 +3,9 @@
  *
  */
 
-namespace Smores;
+/* namespace Smores; */
 
-class TopBarPageWalker extends Walker_Page
+class TopBarPageWalker extends \Walker_Page
 {
     /**
      * [display_element description]

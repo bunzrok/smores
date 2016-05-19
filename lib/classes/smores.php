@@ -11,11 +11,6 @@ namespace Smores;
 class Smores
 {
     /**
-     * Theme root
-     */
-    const THEME_ROOT = get_stylesheet_directory();
-
-    /**
      * @since Smores 1.2.0
      * @var array $assets Static assets to be inserted into wp_head()
      */
@@ -34,18 +29,19 @@ class Smores
     public function __construct($includes = array(), $assets = array())
     {
         $this->assets = $assets;
+        $this->includes = $includes;
 
         foreach ($this->includes as $directory) {
            self::include_array(self::files_in_dir($directory));
         }
 
-        add_action('after_setup_theme', array($this, 'theme_setup'));
-        add_action('widgets_init', array($this, 'widgets_init'));
+        \add_action('after_setup_theme', array($this, 'theme_setup'));
+        \add_action('widgets_init', array($this, 'smores_widgets_init'));
 
         // Scripts and styles
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'), 100);
-        add_action('wp_head', array($this, 'jquery_local_fallback'));
-        add_action('wp_footer', array($this, 'development_scripts'), 99);
+        \add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'), 100);
+        \add_action('wp_head', array($this, 'jquery_local_fallback'));
+        \add_action('wp_footer', array($this, 'development_scripts'), 99);
     }
 
     /**
@@ -55,7 +51,7 @@ class Smores
      *
      * @return void
      */
-    protected function development_scripts()
+    public function development_scripts()
     {
       if ($_SERVER['REMOTE_ADDR'] === '::1' || $_SERVER['REMOTE_ADDR'] === 'externalIPHere') { ?>
         <script>
@@ -75,23 +71,23 @@ class Smores
      *
      * @return void
      */
-    protected function enqueue_scripts()
+    public function enqueue_scripts()
     {
         //Add Main Stylesheet
-        wp_enqueue_style('smores_css', get_template_directory_uri() . self::get_asset('css'), false, null);
+        \wp_enqueue_style('smores_css', \get_template_directory_uri() . self::get_asset('css'), false, null);
 
         // jQuery is loaded using the same method from HTML5 Boilerplate:
         // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
         // It's kept in the header instead of footer to avoid conflicts with plugins
-        if (!is_admin()) {
-            wp_deregister_script('jquery');
-            wp_register_script('jquery', self::get_asset('jquery'), array(), null, true);
-            add_filter('script_loader_src', array($this, 'jquery_local_fallback'), 10, 2);
+        if (!\is_admin()) {
+            \wp_deregister_script('jquery');
+            \wp_register_script('jquery', self::get_asset('jquery'), array(), null, true);
+            \add_filter('script_loader_src', array($this, 'jquery_local_fallback'), 10, 2);
         }
 
-        wp_enqueue_script('modernizr', get_template_directory_uri() . self::get_asset('modernizr'), array(), null, false);
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('smores_js', get_template_directory_uri() . self::get_asset('js'), array('jquery'), null, true);
+        \wp_enqueue_script('modernizr', \get_template_directory_uri() . self::get_asset('modernizr'), array(), null, false);
+        \wp_enqueue_script('jquery');
+        \wp_enqueue_script('smores_js', \get_template_directory_uri() . self::get_asset('js'), array('jquery'), null, true);
     }
 
     /**
@@ -108,7 +104,7 @@ class Smores
     {
         $smores_include_files = array();
 
-        foreach (glob(self::THEME_ROOT . "/${dir}/*.php") as $filename) {
+        foreach (glob(THEME_ROOT . "/${dir}/*.php") as $filename) {
             $paths = explode('/', $filename);
             $file  = end($paths);
 
@@ -132,9 +128,9 @@ class Smores
     *
     * @return string The value index $asset
     */
-    public static function get_asset($asset)
+    public function get_asset($asset)
     {
-        return self::$assets[$asset];
+        return $this->assets[$asset];
     }
 
     /**
@@ -171,7 +167,7 @@ class Smores
      *
      * @return string Script loader source path.
      */
-    protected function jquery_local_fallback($src, $handle = null)
+    public function jquery_local_fallback($src, $handle = null)
     {
         static $add_jquery_fallback = false;
 
@@ -195,7 +191,7 @@ class Smores
      *
      * @return void
      */
-    protected function theme_setup()
+    public function theme_setup()
     {
         //Add menus
         add_theme_support('menus');
@@ -225,7 +221,7 @@ class Smores
      *
      * @return void
      */
-    protected function smores_widgets_init() {
+    public function smores_widgets_init() {
         register_sidebar(array(
             'name'          => 'Primary',
             'id'            => 'sidebar-primary',

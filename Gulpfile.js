@@ -8,7 +8,7 @@ const through = require('through2');
 
 // CSS task
 gulp.task('styles', () => {
-  return gulp.src('assets/scss/main.scss')
+  return gulp.src('src/scss/main.scss')
     .pipe(plugins.plumber())
     .pipe(plugins.sass({ outputStyle: 'compressed' }))
     .pipe(plugins.postcss([
@@ -17,13 +17,13 @@ gulp.task('styles', () => {
     .pipe(plugins.rename('styles.min.css'))
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(plugins.plumber.stop())
-    .pipe(gulp.dest('assets/css'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(plugins.size({ title: 'styles' }));
 });
 
 // Scripts task
 gulp.task('scripts', () => {
-  return gulp.src(['assets/js/**/*.js'])
+  return gulp.src(['src/js/**/*.js'])
     .pipe(plugins.plumber())
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.babel())
@@ -31,13 +31,13 @@ gulp.task('scripts', () => {
     .pipe(plugins.uglify())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(plugins.plumber.stop())
-    .pipe(gulp.dest('assets/js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(plugins.size({ title: 'scripts' }));
 })
 
 // Optimizes images
 gulp.task('images', () => {
-  return gulp.src('assets/img/**/*')
+  return gulp.src('src/img/**/*')
     .pipe(plugins.plumber())
     .pipe(plugins.imagemin({
       progressive: true,
@@ -45,7 +45,7 @@ gulp.task('images', () => {
       use: [require('imagemin-pngquant')()]
     }))
     .pipe(plugins.plumber.stop())
-    .pipe(gulp.dest('assets/img'))
+    .pipe(gulp.dest('dist/img'))
     .pipe(plugins.size({ title: 'images' }));
 });
 
@@ -54,9 +54,9 @@ gulp.task('build', ['styles', 'scripts', 'images']);
 
 // Watch task
 gulp.task('watch', () => {
-  gulp.watch(['_src/assets/img/**/*'], ['images']);
-  gulp.watch(['_src/assets/css/**/*.css'], ['styles']);
-  gulp.watch(['_src/assets/js/**/*.js'], ['scripts']);
+  gulp.watch(['src/img/**/*'], ['images']);
+  gulp.watch(['src/css/**/*.css'], ['styles']);
+  gulp.watch(['src/js/**/*.js'], ['scripts']);
 });
 
 // Default task

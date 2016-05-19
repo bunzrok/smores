@@ -5,7 +5,7 @@
 
 namespace Smores;
 
-class TopBarWalker extends Walker_Nav_Menu
+class TopBarWalker extends \Walker_Nav_Menu
 {
     /**
      * [display_element description]

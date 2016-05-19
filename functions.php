@@ -21,34 +21,35 @@
  * @since Smores 1.0
  */
 
+define("THEME_ROOT", get_stylesheet_directory());
+
 // Composer dependencies
-require __DIR__ . '/lib/vendor/autoload.php';
+require_once __DIR__ . '/lib/vendor/autoload.php';
 
 use Smores\Smores;
 use Smores\TopBarPageWalker;
 use Smores\TopBarWalker;
 
-// Instantiate Smores
-// $smores = new Smores(
-//     array( // Includes
-//         'lib/admin',         // Add admin scripts
-//         'lib/ajax',          // Add ajax scripts
-//         'lib/classes',       // Add classes
-//         'lib/custom-fields', // Add custom field scripts
-//         'lib/forms',         // Add form scripts
-//         'lib/images',        // Add images scripts
-//         'lib/post-types',    // Add post type scripts
-//         'lib/shortcodes',    // Add shortcode scripts
-//         'lib/widgets',       // Add widget scripts
-//     ),
-//     array( // Assets
-//         'css'             => '/assets/css/styles.min.css',
-//         'js'              => '/assets/js/scripts.min.js',
-//         'modernizr'       => '/assets/js/vendor/modernizr.min.js',
-//         'jquery'          => '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js',
-//         'jquery_fallback' => '/assets/js/vendor/jquery.min.js',
-//     ),
-// );
+$smores = new Smores(
+    array( // Includes
+        'lib/admin',         // Add admin scripts
+        'lib/ajax',          // Add ajax scripts
+        'lib/classes',       // Add classes
+        'lib/custom-fields', // Add custom field scripts
+        'lib/forms',         // Add form scripts
+        'lib/images',        // Add images scripts
+        'lib/post-types',    // Add post type scripts
+        'lib/shortcodes',    // Add shortcode scripts
+        'lib/widgets',       // Add widget scripts
+    ),
+    array( // Assets
+        'css'             => '/dist/css/styles.min.css',
+        'js'              => '/dist/js/scripts.min.js',
+        'modernizr'       => '/dist/js/vendor/modernizr.min.js',
+        'jquery'          => '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js',
+        'jquery_fallback' => '/dist/js/vendor/jquery.min.js',
+)
+);
 
 /**
  * [smores_numeric_pagination description]
