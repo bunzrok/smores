@@ -12,7 +12,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "assets/bower_components"
+    "src/bower_components"
   ],
   "dependencies": {
     "modernizr": "2.8.3",
