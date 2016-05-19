@@ -31,7 +31,7 @@ gulp.task('scripts', () => {
     .pipe(plugins.uglify())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(plugins.plumber.stop())
-    .pipe(gulp.dest('_dist/assets/js'))
+    .pipe(gulp.dest('assets/js'))
     .pipe(plugins.size({ title: 'scripts' }));
 })
 

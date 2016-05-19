@@ -5,3 +5,5 @@ node_modules
 assets/bower_components
 .DS_Store
 lib/vendor
+assets/js/*.min.js
+*.map
