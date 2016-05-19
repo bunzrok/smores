@@ -9,4 +9,3 @@ assets/js/*.min.js
 *.map
 dist
 dist/
-dist/**/*
