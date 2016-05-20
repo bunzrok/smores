@@ -61,7 +61,7 @@ gulp.task('build', ['styles', 'scripts', 'modernizr', 'images']);
 // Watch task
 gulp.task('watch', () => {
   gulp.watch(['src/img/**/*'], ['images']);
-  gulp.watch(['src/css/**/*.css'], ['styles']);
+  gulp.watch(['src/scss/**/*.scss'], ['styles']);
   gulp.watch(['src/js/**/*.js'], ['scripts']);
 });
 
