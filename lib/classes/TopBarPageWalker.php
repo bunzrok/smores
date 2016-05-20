@@ -3,7 +3,7 @@
  *
  */
 
-/* namespace Smores; */
+namespace Smores;
 
 class TopBarPageWalker extends \Walker_Page
 {
