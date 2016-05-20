@@ -3,8 +3,8 @@
  * The Template for displaying all single posts
  *
  * @package Smores
- * @since Smores 1.0
+ * @since Smores 2.0
  */
 ?>
-<?php get_header(); ?>
-<?php get_footer(); ?>
+<?php get_template_part('templates/header'); ?>
+<?php get_template_part('templates/footer'); ?>

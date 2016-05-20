@@ -3,7 +3,7 @@
  * The template for displaying the header
  *
  * @package Smores
- * @since Smores 1.0
+ * @since Smores 2.0
  */
 ?>
 <!doctype html>

@@ -3,7 +3,7 @@
  * General Smores class
  *
  * @package Smores
- * @since Smores 1.1.0
+ * @since Smores 2.0
  */
 
 namespace Smores;
@@ -11,7 +11,7 @@ namespace Smores;
 class Smores
 {
     /**
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      * @var array $assets Static assets to be inserted into wp_head()
      */
     protected $assets;
@@ -19,7 +19,7 @@ class Smores
     /**
      * The class constructor
      *
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      *
      * @param array $assets   Static assets with names
      * @param array $includes Directories with files to be included
@@ -47,7 +47,7 @@ class Smores
     /**
      * Adds development scripts
      *
-     * @since 1.2.0
+     * @since 2.0
      *
      * @return void
      */
@@ -67,7 +67,7 @@ class Smores
     /**
      * Enqueues scripts and stylesheets
      *
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      *
      * @return void
      */
@@ -160,7 +160,7 @@ class Smores
      *
      * @see http://wordpress.stackexchange.com/a/12450
      *
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      *
      * @param string $src    Script loader source path.
      * @param string $handle Script handle.
@@ -187,7 +187,7 @@ class Smores
     /**
      * Initial setup
      *
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      *
      * @return void
      */
@@ -214,10 +214,11 @@ class Smores
         }
     }
 
+
     /**
      * Register sidebars
      *
-     * @since Smores 1.2.0
+     * @since Smores 2.0
      *
      * @return void
      */

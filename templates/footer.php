@@ -3,7 +3,7 @@
  * The template for displaying the footer
  *
  * @package Smores
- * @since Smores 1.0
+ * @since Smores 2.0
  */
 ?>	
 	<!-- Asynchronous Javascript Loacing Example -->

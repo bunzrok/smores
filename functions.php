@@ -18,7 +18,7 @@
  * @link http://codex.wordpress.org/Plugin_API
  *
  * @package Smores
- * @since Smores 1.0
+ * @since Smores 2.0
  */
 
 define("THEME_ROOT", get_stylesheet_directory());
