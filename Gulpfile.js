@@ -24,12 +24,17 @@ gulp.task('styles', () => {
 gulp.task('modernizr', () => {
   return gulp.src('src/js/**/*.js')
     .pipe(plugins.modernizr())
-    .pipe(gulp.dest("src/js/vendor/"))
+    .pipe(plugins.concat('modernizr.min.js'))
+    .pipe(plugins.uglify()) 
+    .pipe(gulp.dest("dist/js/vendor/"))
 });
 
 // Scripts task
 gulp.task('scripts', () => {
-  return gulp.src(['src/js/**/*.js'])
+  return gulp.src([
+      'src/js/**/*.js',
+      '!src/js/vendor/*.js'
+    ])
     .pipe(plugins.plumber())
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.babel())
