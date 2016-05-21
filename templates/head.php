@@ -17,23 +17,23 @@
 
 <head>
 
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    
-    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <meta name="description" content="<?php bloginfo('description') ?>" />
-    <meta name="author" content="Findsome &amp; Winmore" />
-    <!-- Google will often use this as its description of your page/site. Make it good. -->
-    
-    <meta name="google-site-verification" content="" />
-    <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <meta name="description" content="<?php bloginfo('description') ?>" />
+  <meta name="author" content="Findsome &amp; Winmore" />
+  <!-- Google will often use this as its description of your page/site. Make it good. -->
+  
+  <meta name="google-site-verification" content="" />
+  <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
 
-    <meta name="Copyright" content="<?php echo date('Y'); ?>" />
+  <meta name="Copyright" content="<?php echo date('Y'); ?>" />
 
-   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-   <meta name="apple-mobile-web-app-capable" content="yes" /> 
-   <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-touch-fullscreen" content="yes" />
 
 
    <?php get_template_part('partials/meta', 'favicons'); ?>
